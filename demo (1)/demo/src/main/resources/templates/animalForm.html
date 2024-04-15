@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Information Form</title>
+</head>
+<body>
+    <h2>Submit New/Edit Animal Information</h2>
+    <form action="/animal" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="name">Name of the Animal:</label><br>
+            <input type="text" id="name" name="name" th:value="${animal.name}">
+        </div>
+        <div>
+            <label for="category">Category:</label><br>
+            <input type="text" id="category" name="category" th:value="${animal.category}">
+        </div>
+        <div>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" th:text="${animal.description}"></textarea>
+        </div>
+        <div>
+            <label for="lifeExpectancy">Life Expectancy:</label><br>
+            <input type="text" id="lifeExpectancy" name="lifeExpectancy" th:value="${animal.lifeExpectancy}">
+        </div>
+        <div>
+            <label for="image">Image:</label><br>
+            <input type="file" id="image" name="image">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div th:if="${error}" style="color: red;">Error: <span th:text="${error}"></span></div>
+    <div th:if="${success}" style="color: green;">Success: <span th:text="${success}"></span></div>
+</body>
+</html>
